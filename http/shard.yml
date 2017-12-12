@@ -1,4 +1,4 @@
-name: orion-benchmark
+name: http-benchmark
 version: 0.0.1
 
 targets:

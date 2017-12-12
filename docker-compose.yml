@@ -37,9 +37,9 @@ services:
   benchmark-orion-oak:
     <<: *benchmark
     links:
-      - orion-old
+      - orion-oak
     command: benchmark orion-oak
-  orion-old:
+  orion-oak:
     build:
       context: ./orion-oak
     environment:
