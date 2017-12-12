@@ -9,6 +9,8 @@ benchmark:
 	@docker-compose -f ./benchmarks/docker-compose.yml stop
 	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-orion-old
 	@docker-compose -f ./benchmarks/docker-compose.yml stop
+	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-orion-oak
+	@docker-compose -f ./benchmarks/docker-compose.yml stop
 	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-sinatra
 	@docker-compose -f ./benchmarks/docker-compose.yml stop
 	# @docker-compose -f ./benchmarks/docker-compose.yml run benchmark-express

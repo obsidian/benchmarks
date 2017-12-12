@@ -34,6 +34,18 @@ services:
       PORT: 3000
     expose:
       - 3000
+  benchmark-orion-oak:
+    <<: *benchmark
+    links:
+      - orion-old
+    command: benchmark orion-oak
+  orion-old:
+    build:
+      context: ./orion-oak
+    environment:
+      PORT: 3000
+    expose:
+      - 3000
   benchmark-orion-old:
     <<: *benchmark
     links:
