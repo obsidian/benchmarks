@@ -4,4 +4,4 @@ WORKDIR /app
 ADD app.cr shard.yml ./
 RUN shards build --release --no-debug
 
-CMD ./bin/orion
+CMD ./bin/orion-oak

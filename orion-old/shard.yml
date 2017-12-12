@@ -2,7 +2,7 @@ name: orion-old-benchmark
 version: 0.0.1
 
 dependencies:
-  orion:
+  orion-old:
     github: obsidian/orion
     branch: old
 

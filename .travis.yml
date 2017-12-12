@@ -1,6 +1,17 @@
-language: bash
+language: crystal
 services:
   - docker
-script:
-  - make run
-  - cat results.txt
+env:
+  global:
+    - PORT=3000
+  matrix:
+    - APP=http
+    - APP=kemal
+    - APP=orion
+    - APP=orion-old
+    - APP=orion-oak
+install:
+  - cd $APP && shards build
+  - docker build benchmark -t benchmark
+before_script: ./$APP/bin/$APP &
+script: docker run --env=PORT=$PORT --net=host localhost
