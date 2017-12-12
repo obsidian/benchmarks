@@ -1,0 +1,11 @@
+name: orion-benchmark
+version: 0.0.1
+
+dependencies:
+  orion:
+    github: obsidian/orion
+    branch: old
+
+targets:
+  orion:
+    main: ./app.cr
