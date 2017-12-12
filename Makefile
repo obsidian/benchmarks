@@ -1,18 +1,18 @@
-benchmark:
-	@rm -f benchmarks/results.txt
-	@docker-compose -f ./benchmarks/docker-compose.yml build
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-http
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-kemal
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-orion
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-orion-old
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-orion-oak
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
-	@docker-compose -f ./benchmarks/docker-compose.yml run benchmark-sinatra
-	@docker-compose -f ./benchmarks/docker-compose.yml stop
+run:
+	@rm -f results.txt
+	@docker-compose build
+	@docker-compose run benchmark-http
+	@docker-compose stop
+	@docker-compose run benchmark-kemal
+	@docker-compose stop
+	@docker-compose run benchmark-orion
+	@docker-compose stop
+	@docker-compose run benchmark-orion-old
+	@docker-compose stop
+	@docker-compose run benchmark-orion-oak
+	@docker-compose stop
+	@docker-compose run benchmark-sinatra
+	@docker-compose stop
 	# @docker-compose -f ./benchmarks/docker-compose.yml run benchmark-express
 	# @docker-compose -f ./benchmarks/docker-compose.yml stop
 	# @docker-compose -f ./benchmarks/docker-compose.yml run benchmark-http-router

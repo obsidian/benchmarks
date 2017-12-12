@@ -1,10 +1,7 @@
 #!/bin/bash
 set -e
-echo "Running benchmarks"
+echo "Running benchmarks for '$1'"
 touch $OUT_FILE
-for host in "$@" ; do
-  echo "Test results for '$host':" | tee -a $OUT_FILE
-  curl -v http://$host:${PORT}${TEST_ROUTE} | tee -a $OUT_FILE
-  wrk -c 100 -d 40 http://$host:${PORT}${TEST_ROUTE} | tee -a $OUT_FILE
-  echo "" | tee -a $OUT_FILE
-done
+echo "Test results for '$1':" | tee -a $OUT_FILE
+bombardier -c 100 -d 30s http://$1:${PORT}${TEST_ROUTE} | tee -a $OUT_FILE
+echo "" | tee -a $OUT_FILE
