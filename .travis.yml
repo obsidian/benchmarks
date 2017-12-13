@@ -18,5 +18,5 @@ install:
 before_script: ./bin/$APP &> /dev/null &
 script:
   - sleep 5
-  - curl http://localhost:${PORT}${TEST_ROUTE}
-  - docker run --env=PORT=$PORT --net=host benchmark localhost
+  - curl -f http://localhost:${PORT}${TEST_ROUTE}
+  - docker run --env=PORT=$PORT --env=TEST_ROUTE=$TEST_ROUTE --net=host benchmark localhost
