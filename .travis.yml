@@ -14,4 +14,4 @@ install:
   - docker build -t benchmark ./benchmark
   - cd $APP && shards build --release --no-debug
 before_script: ./$APP/bin/$APP &
-script: docker run --env=PORT=$PORT --net=host localhost
+script: docker run --env=PORT=$PORT --net=host benchmark localhost
