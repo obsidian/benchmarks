@@ -13,9 +13,9 @@ env:
     - APP=orion-oak
 install:
   - docker build -t benchmark ./benchmark
-  - cd $APP && shards build --release --no-debug
-  - ls -R
-before_script: ./$APP/bin/$APP &
+  - cd $APP
+  - shards build --release --no-debug
+before_script: ./bin/$APP &
 script:
   - curl http://`hostname -i`:${PORT}${TEST_ROUTE}
   - docker run --env=PORT=$PORT --net=host benchmark `hostname -i`
