@@ -14,9 +14,8 @@ env:
 install:
   - docker build -t benchmark ./benchmark
   - cd $APP && shards build --release --no-debug
+  - ls -R
 before_script: ./$APP/bin/$APP &
 script:
-  - env
-  - ps -aq
   - curl http://`hostname -i`:${PORT}${TEST_ROUTE}
   - docker run --env=PORT=$PORT --net=host benchmark `hostname -i`
