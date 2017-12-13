@@ -12,6 +12,6 @@ env:
     - APP=orion-oak
 install:
   - docker build -t benchmark ./benchmark
-  - cd $APP && shards build --release
+  - cd $APP && shards build --release --no-debug
 before_script: ./$APP/bin/$APP &
 script: docker run --env=PORT=$PORT --net=host localhost

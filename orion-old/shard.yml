@@ -2,10 +2,10 @@ name: orion-old-benchmark
 version: 0.0.1
 
 dependencies:
-  orion-old:
+  orion:
     github: obsidian/orion
     branch: old
 
 targets:
-  orion:
+  orion-old:
     main: ./app.cr

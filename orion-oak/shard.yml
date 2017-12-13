@@ -2,10 +2,10 @@ name: orion-oak-benchmark
 version: 0.0.1
 
 dependencies:
-  orion-oak:
+  orion:
     github: obsidian/orion
     branch: oak
 
 targets:
-  orion:
+  orion-oak:
     main: ./app.cr
