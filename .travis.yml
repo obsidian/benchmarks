@@ -16,5 +16,5 @@ install:
   - cd $APP && shards build --release --no-debug
 before_script: ./$APP/bin/$APP &
 script:
-  - curl http://localhost:${PORT}${TEST_ROUTE}
-  - docker run --env=PORT=$PORT --net=host benchmark localhost
+  - curl http://`hostname -i`:${PORT}${TEST_ROUTE}
+  - docker run --env=PORT=$PORT --net=host benchmark `hostname -i`
