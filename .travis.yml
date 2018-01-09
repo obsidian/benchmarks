@@ -1,22 +1,5 @@
 language: crystal
 services:
   - docker
-env:
-  global:
-    - PORT=3000
-    - TEST_ROUTE=/repos/OWNER/REPO/hooks/ID
-  matrix:
-    - APP=http
-    - APP=kemal
-    - APP=orion
-    - APP=orion-old
-    - APP=orion-oak
-install:
-  - docker build -t benchmark ./benchmark
-  - cd $APP
-  - shards build --release --no-debug
-before_script: ./bin/$APP &> /dev/null &
 script:
-  - sleep 5
-  - curl -f http://localhost:${PORT}${TEST_ROUTE}
-  - docker run --env=PORT=$PORT --env=TEST_ROUTE=$TEST_ROUTE --net=host benchmark localhost
+  - make run
