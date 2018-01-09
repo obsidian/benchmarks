@@ -9,12 +9,12 @@ services:
       OUT_FILE: /hostmachine/results.txt
       PORT: 3000
       TEST_ROUTE: /repos/OWNER/REPO/hooks/ID
-    command: benchmark kemal
+    command: kemal
   benchmark-kemal:
     <<: *benchmark
     links:
       - kemal
-    command: benchmark kemal
+    command: kemal
   kemal:
     build:
       context: ./kemal
@@ -26,22 +26,10 @@ services:
     <<: *benchmark
     links:
       - orion
-    command: benchmark orion
+    command: orion
   orion:
     build:
       context: ./orion
-    environment:
-      PORT: 3000
-    expose:
-      - 3000
-  benchmark-orion-oak:
-    <<: *benchmark
-    links:
-      - orion-oak
-    command: benchmark orion-oak
-  orion-oak:
-    build:
-      context: ./orion-oak
     environment:
       PORT: 3000
     expose:
@@ -50,7 +38,7 @@ services:
     <<: *benchmark
     links:
       - orion-old
-    command: benchmark orion-old
+    command: orion-old
   orion-old:
     build:
       context: ./orion-old
@@ -62,7 +50,7 @@ services:
     <<: *benchmark
     links:
       - http
-    command: benchmark http
+    command: http
   http:
     build:
       context: ./http
@@ -74,7 +62,7 @@ services:
     <<: *benchmark
     links:
       - sinatra
-    command: benchmark sinatra
+    command: sinatra
   sinatra:
     build:
       context: ./sinatra
