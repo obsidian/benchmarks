@@ -730,6 +730,4 @@ router OrionBenchmark do
   end
 end
 
-# puts OrionBenchmark.visualize
-
 OrionBenchmark.listen(port: ENV["PORT"].to_i, host: "0.0.0.0")

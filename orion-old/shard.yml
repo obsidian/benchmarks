@@ -4,7 +4,7 @@ version: 0.0.1
 dependencies:
   orion:
     github: obsidian/orion
-    branch: old
+    branch: caching-pipelines
 
 targets:
   orion-old:
